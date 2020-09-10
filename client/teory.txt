@@ -1,0 +1,15 @@
+Apa yang anda ketahui mengenai docker?
+
+Docker adalah virtual environment yang membungkus software, sehingga software yang kita buat dapat di bagai di banyak hardware.
+
+Dengan menggunakan NPM Library yang berbeda dapat membuat kodingan yang telah kita buat tidak dapat di gunakan oleh rekan kita. Docker dapat menyelesaikan masalah tersebut dengan membuatkan kita virtual environment sehingga semua orang yang mengerjakan software tersebut memiliki lingkungan yang sama.
+
+Untuk menggunakan docker diperlukan 3 langkah yaitu :
+1. Dockerfile : yang digunakan untuk menuliskan semua perintah yang diperlukan untuk membuat docker image.
+2. DockerImage : adalah sebuah template yang berisikan instruksi untuk membuat Docker Container untuk di jalankan pada docker platform. Docker Image dapat memudahkan kita untuk menyiapkan server environment untuk dapat di pakai di beberapa docker container.
+3. Docker Container : Adalah sebuat app yang sudah berisikan semua kodingan yang diperlukan untuk menjalankan software tersebut. Biasanya sebuah Docker Container hanya mengakses satu API saja, dan untuk pekerjaan yang specific.
+
+Kenapa kita harus menggunakan Docker ?
+Seringkali ketika saya sedang bekerja untuk suatu projek yang sama bersama teman, seringkali terjadi kejadian bahwa kodingan tersebut dapat bekerja di laptop saya tapi tidak di laptop teman saya dan kebalikannya. Ini dapat disebabkan oleh beberapa hal, salah satunya adalah penggunaan package library yang berbeda.
+
+Docker dapat menyelesaikan masalah tersebut dengan membuatkan virtual environment sehingga semua orang akan menggunakan package dan library yang sama dan mengurangi masalah bahwa kodingan tersebut dapat di gunakan di tempat yang satu tapi tidak di tempat yang lain.
