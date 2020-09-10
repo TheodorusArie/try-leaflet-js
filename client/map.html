@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+
+    <style>
+        #mapid {
+            position: absolute;
+            right: 0px;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mapid"></div>
+
+
+
+    <script>
+        let mymap = L.map('mapid').setView([-6.195950, 106.773595], 11);
+        let houseIcon = L.icon({
+            iconUrl: 'Home Icon.png',
+            iconSize: [50, 50],
+            iconAnchor: [28, 80],
+            popupAnchor: [-3, -76],
+        });
+        let houseMarker = L.marker([-6.195942, 106.773595], { icon: houseIcon }).addTo(mymap).bindPopup('This is the area I live')
+
+        let BVTIcon = L.icon({
+            iconUrl: 'office-icon-5.jpg',
+            iconSize: [40, 40],
+            iconAnchor: [18, 70],
+            popupAnchor: [-3, -76],
+        });
+        let BVTMarker = L.marker([-6.2874, 106.6410], { icon: BVTIcon }).addTo(mymap).bindPopup('This is Bhumi Varta Technology')
+        let monasMarker = L.marker([-6.175392, 106.827153]).addTo(mymap).bindPopup('This is Monas')
+        let mallAlamSuteraMarker = L.marker([-6.222227, 106.651973]).addTo(mymap).bindPopup('This is Mall Alam Sutera')
+        let manggaDuaMarker = L.marker([-6.135626, 106.83102]).addTo(mymap).bindPopup('This is Mangga Dua Square')
+
+        let popup = L.popup()
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent(`${e.latlng.toString()}`)
+                .openOn(mymap)
+        }
+
+        mymap.on('click',onMapClick);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoidGhlb2RvcnVzYXJpZSIsImEiOiJja2V3aXhjMzMwNmptMnpwOGM4enNycXRpIn0.D0dock64m8lWhPCB_yviGA'
+        }).addTo(mymap);
+    </script>
+
+</body>
+
+
+</html>
